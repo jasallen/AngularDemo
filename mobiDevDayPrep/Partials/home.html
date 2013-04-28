@@ -4,8 +4,25 @@
 	subReddit: <input type="text" ng-model="subRedditName" />
 	<button ng-click="fetch()">fetch reddits</button>
 
-	<ul>
-		<li ng-repeat="item in reddit.data.children">{{ item.data.title }}</li>
-	</ul>	
+	<div class="accordion" id="RedditAccordion">
+		<div class="accordion-group" ng-class="{'label-success': HnHasMatch(item.data.url)}" ng-repeat="item in reddit.data.children">
+			<div class="accordion-heading row-fluid">
+				<a class="accordion-toggle" data-toggle="collapse" 
+					data-parent="#RedditAccordion" href="#redditBody{{item.data.id}}" >
+					<div class="span1">{{ item.data.score }}</div>
+					<div class="span4">{{ item.data.title }}</div>
+					<div class="span7">{{ item.data.url }}</div>					
+				</a>
+			</div>
+			<div class="accordion-body collapse" id="redditBody{{item.data.id}}"  >
+				<div class="accordion-inner">
+					<ul class="inline">
+						<li ng-repeat="point in getKeys(item.data)"><strong>{{ point }}:</strong> {{ item.data[point] }}</li>
+					</ul>					
+				</div>
+			</div>
+		</div>
+	</div>
+
 
 </div>

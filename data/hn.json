@@ -1,0 +1,72 @@
+{
+    "facet_results": {
+        "fields": {},
+        "queries": {}
+    },
+    "hits": 1,
+    "request": {
+        "boosts": {
+            "fields": {},
+            "filters": {},
+            "functions": {}
+        },
+        "facet": {
+            "fields": {},
+            "queries": []
+        },
+        "filter": {
+            "fields": {},
+            "queries": []
+        },
+        "highlight": {
+            "fragments": {
+                "include": false,
+                "markup_text": false,
+                "maxchars": 100
+            },
+            "include_matches": false,
+            "markup_items": false
+        },
+        "limit": 10,
+        "q": "Skype account hijack technique may affect all users",
+        "sortby": "score desc",
+        "start": 0,
+        "stats": {},
+        "weights": {
+            "discussion.sigid": 1.0,
+            "domain": 1.0,
+            "parent_sigid": 1.0,
+            "text": 1.0,
+            "title": 1.0,
+            "type": 1.0,
+            "url": 1.0,
+            "username": 1.0
+        }
+    },
+    "results": [
+        {
+            "item": {
+                "_id": "5622045-2c767",
+                "_noindex": false,
+                "_update_ts": 1367184987069766,
+                "cache_ts": "2013-04-28T21:35:57Z",
+                "create_ts": "2013-04-28T17:49:13Z",
+                "discussion": null,
+                "domain": "community.skype.com",
+                "id": 5622045,
+                "num_comments": 31,
+                "parent_id": null,
+                "parent_sigid": null,
+                "points": 139,
+                "text": null,
+                "title": "Skype account hijack technique may affect all users",
+                "type": "submission",
+                "url": "http://community.skype.com/t5/Security-Privacy-Trust-and/URGENT-Skype-Support-Account-Security-Issue-CAN-AFFECT-ALL-USERS/td-p/1552372",
+                "username": "dewey"
+            },
+            "score": 4.352022
+        }
+    ],
+    "time": 0.017888784408569336,
+    "warnings": []
+}
