@@ -3,9 +3,13 @@
 
 function homeCtrl ($scope, $http) {
 
-	$http.jsonp("http://www.reddit.com/r/technology.json?jsonp=JSON_CALLBACK")
-	.success(function(data, status) {
-		$scope.reddit = data;
-	});
+	$scope.subRedditName = "technology";
+
+	$scope.fetch = function(){
+		$http.jsonp("http://www.reddit.com/r/" + $scope.subRedditName + ".json?jsonp=JSON_CALLBACK")
+		.success(function(data, status) {
+			$scope.reddit = data;
+		});
+	};
 
 };

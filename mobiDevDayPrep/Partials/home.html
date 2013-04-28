@@ -1,8 +1,11 @@
 
 <div class="container">
 
+	subReddit: <input type="text" ng-model="subRedditName" />
+	<button ng-click="fetch()">fetch reddits</button>
+
 	<ul>
 		<li ng-repeat="item in reddit.data.children">{{ item.data.title }}</li>
-	</ul>
+	</ul>	
 
 </div>
