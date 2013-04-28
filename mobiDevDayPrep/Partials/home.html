@@ -1,2 +1,8 @@
 
-<div class="container">{{ statement }}</div>
+<div class="container">
+
+	<ul>
+		<li ng-repeat="item in reddit.data.children">{{ item.data.title }}</li>
+	</ul>
+
+</div>
