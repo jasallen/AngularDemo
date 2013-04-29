@@ -5,7 +5,7 @@
 	<button ng-click="fetch()">fetch reddits</button>
 
 	<div class="accordion" id="RedditAccordion">
-		<div class="accordion-group" ng-repeat="item in reddit.data.children" ng-class="{'label-success': foundOnHn(item.data.url).data.hits > 0}" >
+		<div class="accordion-group" ng-repeat="item in reddit.data.children" ng-class="{'label-success': item.foundOnHn.data.hits > 0}" >
 			<div class="accordion-heading row-fluid">
 				<a class="accordion-toggle" data-toggle="collapse" 
 					data-parent="#RedditAccordion" href="#redditBody{{item.data.id}}" >
