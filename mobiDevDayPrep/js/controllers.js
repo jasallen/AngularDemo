@@ -10,10 +10,6 @@ function homeCtrl ($scope, $http, $q, HackerNews) {
 		.success(function(data, status) {
 			$scope.reddit = data;
 
-			// for (var i = data.data.children.length - 1; i >= 0; i--) {
-			//  	data.data.children[i].foundOnHn = $http.jsonp("http://api.thriftdb.com/api.hnsearch.com/items/_search?q=" + data.data.children[i].data.url + "&callback=JSON_CALLBACK") ;
-			//  	//HackerNews.get(data.data.children[i].data.url);		 	
-			// };
 		});
 	};
 
