@@ -1,7 +1,7 @@
 'use strict'
 
 
-function homeCtrl ($scope, $http, $q, HackerNews) {
+function homeCtrl ($scope, $http) {
 
 	$scope.subRedditName = "technology";
 	
