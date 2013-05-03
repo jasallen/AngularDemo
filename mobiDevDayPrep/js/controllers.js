@@ -1,7 +1,7 @@
 'use strict'
 
 
-function homeCtrl ($scope, $http, HackerNews) {
+function homeCtrl ($scope, $http, $timeout, HackerNews) {
 
 	$scope.subRedditName = "technology";
 	
@@ -10,10 +10,14 @@ function homeCtrl ($scope, $http, HackerNews) {
 		.success(function(data, status) {
 			$scope.reddit = data;
 
-			for (var i = data.data.children.length - 1; i >= 0; i--) {
-			 	//data.data.children[i].foundOnHn = $http.jsonp("http://api.thriftdb.com/api.hnsearch.com/items/_search?q=" + data.data.children[i].data.url + "&callback=JSON_CALLBACK") ;
-			 	data.data.children[i].foundOnHn = HackerNews.get(data.data.children[i].data.url);
-			};
+			$timeout(function() {	
+				for (var i = data.data.children.length - 1; i >= 0; i--) {
+				 	//data.data.children[i].foundOnHn = $http.jsonp("http://api.thriftdb.com/api.hnsearch.com/items/_search?q=" + data.data.children[i].data.url + "&callback=JSON_CALLBACK") ;
+					var child = data.data.children[i];
+					
+					 	child.foundOnHn = HackerNews.get(child.data.url);
+				};
+			}, 0);
 		});
 	};
 
