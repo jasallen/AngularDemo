@@ -1,28 +1,29 @@
+<div>
+        <div class="container">
+    
+            subReddit: <input type="text" ng-model="subRedditName" />
+            <button ng-click="fetch()">fetch reddits</button>
 
-<div class="container">
+            <div class="accordion" id="RedditAccordion">
+                <div class="accordion-group" ng-repeat="item in reddit.data.children" ng-class="{'label-success': item.foundOnHn.data.hits > 0}" >
+                    <div class="accordion-heading row-fluid">
+                        <a class="accordion-toggle" data-toggle="collapse" 
+                           data-parent="#RedditAccordion" href="#redditBody{{item.data.id}}" >
+                            <div class="span1">{{ item.data.score }} </div>
+                            <div class="span4">{{ item.data.title }}</div>
+                            <div class="span7">{{ item.data.url }}</div>					
+                        </a>
+                    </div>
+                    <div class="accordion-body collapse" id="redditBody{{item.data.id}}"  >
+                        <div class="accordion-inner">
+                            <button ng-click="hnDetails(item.foundOnHn.data)">HN Stuff</button>
 
-	subReddit: <input type="text" ng-model="subRedditName" />
-	<button ng-click="fetch()">fetch reddits</button>
-
-	<div class="accordion" id="RedditAccordion">
-		<div class="accordion-group" ng-repeat="item in reddit.data.children" ng-class="{'label-success': item.foundOnHn.data.hits > 0}" >
-			<div class="accordion-heading row-fluid">
-				<a class="accordion-toggle" data-toggle="collapse" 
-					data-parent="#RedditAccordion" href="#redditBody{{item.data.id}}" >
-					<div class="span1">{{ item.data.score }} </div>
-					<div class="span4">{{ item.data.title }}</div>
-					<div class="span7">{{ item.data.url }}</div>					
-				</a>
-			</div>
-			<div class="accordion-body collapse" id="redditBody{{item.data.id}}"  >
-				<div class="accordion-inner">
-					<ul class="inline">
-						<li ng-repeat="point in getKeys(item.data)"><strong>{{ point }}:</strong> {{ item.data[point] }}</li>
-					</ul>					
-				</div>
-			</div>
-		</div>
-	</div>
-
-
-</div>
+                            <ul class="inline">
+                                <li ng-repeat="point in getKeys(item.data)"><strong>{{ point }}:</strong> {{ item.data[point] }}</li>
+                            </ul>					
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+ </div>

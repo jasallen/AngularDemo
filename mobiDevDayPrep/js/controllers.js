@@ -1,7 +1,7 @@
-'use strict'
+'use strict';
 
 
-function homeCtrl ($scope, $http, $timeout, HackerNews) {
+function homeCtrl ($scope, $http, $timeout, $location, HackerNews) {
 
 	$scope.subRedditName = "technology";
 	
@@ -25,4 +25,12 @@ function homeCtrl ($scope, $http, $timeout, HackerNews) {
 		return Object.keys(obj);
 	};
 
+    $scope.hnDetails = function(obj) {
+        HackerNews.set_current(obj);
+        $location.path("/hnDetails");
+    };
 };
+
+function hnDetailsCtrl($scope, HackerNews, $routeParams) {
+    $scope.hn = angular.toJson(HackerNews.get_current());
+}
